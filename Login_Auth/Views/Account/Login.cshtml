@@ -1,0 +1,30 @@
+﻿@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewData["Title"] = "Log in";
+}
+<div class="container">
+    <form asp-controller="Account" asp-action="LogIn" class="form-signin" method="post">
+        <h2 class="form-signin-heading">sign in now</h2>
+        <div class="login-wrap">
+            <div class="user-login-info">         
+                <input type="text" asp-for="UserName" class="form-control cust-form-control" placeholder="User Name" autofocus>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+
+                <input type="password" asp-for="Key" class="form-control cust-form-control" placeholder="Key">
+                <span asp-validation-for="Key" class="text-danger"></span>
+            </div>
+            <button class="btn btn-lg btn-login btn-block btn-cust" type="submit" >Sign in</button>
+            <br />
+            <span>
+                <a data-toggle="modal" href="#resetModal" style="color:#735bbb; margin-left:95px;"> Forgot Your Key?</a>
+            </span>
+            <br />
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
